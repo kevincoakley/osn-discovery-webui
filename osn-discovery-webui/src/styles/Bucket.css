@@ -1,0 +1,30 @@
+.rowItem {
+    display:inline-flex;
+    max-width: 50vw;
+    max-height:7vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    border-style: solid;
+    border-color:black;
+    border-width: thin;
+}
+
+.bucketName {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.bucketLocation {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.bucketSize {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.bucketNumFiles {
+    padding-left: 5px;
+    padding-right: 5px
+}
