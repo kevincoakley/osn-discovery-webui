@@ -1,0 +1,8 @@
+.columnHeaders {
+    width:90vw;
+    height:7vh;
+    margin: auto;
+    border-style: solid;
+    border-color:black;
+    border-width: thin;
+}

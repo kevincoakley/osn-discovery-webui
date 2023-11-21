@@ -1,4 +1,4 @@
-import '../styles/NavBar.css'
+import '../assets/styles/NavBar.css'
 function NavBar() {
     return (
         <h1>NavBar</h1>

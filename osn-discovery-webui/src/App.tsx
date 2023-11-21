@@ -2,15 +2,21 @@
 import './App.css'
 import NavBar from './components/NavBar'
 import BucketList from './components/BucketList'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
+const App: React.FC = () => {
 
   return (
     <>
-      <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<BucketList/>} />
+        </Routes>
+      </BrowserRouter>
+      {/* <div>
         <NavBar />
         <BucketList/>
-      </div>
+      </div> */}
     </>
   )
 }

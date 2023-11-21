@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react'
 // import { useQuery } from '@tanstack/react-query'
-import '../styles/Bucket.css'
+import '../assets/styles/Bucket.css'
 
 type BucketProps = {
     bucketName: string;
@@ -11,7 +11,6 @@ type BucketProps = {
 }
 
 function Bucket({ bucketName, bucketLoc, bucketSize, bucketNumFiles }: BucketProps) {
-    // const API_BASE_URL = 'https://osn-api.sdsc.edu/'
     // const {status, data, error, isFetching} = useQuery(
     //     ['data'],
     //     async () => {

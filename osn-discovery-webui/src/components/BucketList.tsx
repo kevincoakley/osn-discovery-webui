@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react'
 import Bucket from './Bucket'
-import '../styles/BucketList.css'
+import '../assets/styles/BucketList.css'
+import config from 'config/config'
 
 interface BucketDetails {
     'bucket': string,
@@ -12,7 +13,6 @@ interface BucketDetails {
 
 }
 function BucketList() {
-    const API_BASE_URL = 'https://osn-api.sdsc.edu'
     const [bucketDetails, setBucketDetails] = useState<Array<BucketDetails>>([{
         'bucket': "",
         'bytes-used': 0,
@@ -22,12 +22,12 @@ function BucketList() {
     }])
 
     const getBucketDetails = async (bucket: string) => {
-        const { data } = await axios.get(`${API_BASE_URL}/details/${bucket}`)
+        const { data } = await axios.get(`${config.API_BASE_URL}/details/${bucket}`)
         return data
     }
 
     const getBuckets = async () => {
-        const { data } = await axios.get(`${API_BASE_URL}/buckets`)
+        const { data } = await axios.get(`${config.API_BASE_URL}/buckets`)
         const buckets = await Promise.all(
             data.map((bucket: string) => getBucketDetails(bucket))
         )
