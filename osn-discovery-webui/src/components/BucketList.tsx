@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useState, useEffect } from 'react'
 import Bucket from './Bucket'
 import '../assets/styles/BucketList.css'
-import config from 'config/config'
 
 interface BucketDetails {
     'bucket': string,
@@ -22,12 +21,12 @@ function BucketList() {
     }])
 
     const getBucketDetails = async (bucket: string) => {
-        const { data } = await axios.get(`${config.API_BASE_URL}/details/${bucket}`)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/details/${bucket}`)
         return data
     }
 
     const getBuckets = async () => {
-        const { data } = await axios.get(`${config.API_BASE_URL}/buckets`)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/buckets`)
         const buckets = await Promise.all(
             data.map((bucket: string) => getBucketDetails(bucket))
         )
@@ -39,8 +38,8 @@ function BucketList() {
     }, [])
     return (
         <>
-            {/* {console.log(`Type of bucketDetails: ${typeof(bucketDetails)}`)}
-            {bucketDetails.map((details) => {
+            {console.log(`Env variable: ${import.meta.env.VITE_API_BASE_URL}`)}
+            {/* {bucketDetails.map((details) => {
                 console.log(details['bucket'])
             })} */}
             <h1>BucketList</h1>
