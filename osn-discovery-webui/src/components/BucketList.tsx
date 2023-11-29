@@ -13,18 +13,20 @@ interface BucketDetails {
 }
 function BucketList() {
     const [bucketDetails, setBucketDetails] = useState<Array<BucketDetails>>([{
-        'bucket': "",
+        'bucket': "bucket not found",
         'bytes-used': 0,
-        'name': "",
+        'name': "name not found",
         'object-count': 0,
-        'site': ""
+        'site': "site not found"
     }])
 
+    // Api call to get details of buckets
     const getBucketDetails = async (bucket: string) => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/details/${bucket}`)
         return data
     }
 
+    // Api call to get names of buckets
     const getBuckets = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/buckets`)
         const buckets = await Promise.all(

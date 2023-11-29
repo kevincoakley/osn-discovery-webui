@@ -1,5 +1,6 @@
 .rowItem {
     display:inline-flex;
+    position: relative;
     max-width: 50vw;
     max-height:7vh;
     margin-left: 10vw;
@@ -7,24 +8,29 @@
     border-style: solid;
     border-color:black;
     border-width: thin;
+    background-color: #E6E1E1;
 }
 
 .bucketName {
-    padding-left: 5px;
-    padding-right: 5px
+    position:absolute;
+    max-width: 50%;
+    left: 0%;
 }
 
 .bucketLocation {
-    padding-left: 5px;
-    padding-right: 5px
+    position:absolute;
+    max-width: 30%;
+    left: 40%;
 }
 
 .bucketSize {
-    padding-left: 5px;
-    padding-right: 5px
+    position:absolute;
+    max-width: 10%;
+    left: 60%;
 }
 
 .bucketNumFiles {
-    padding-left: 5px;
-    padding-right: 5px
+    position:absolute;
+    max-width: 10%;
+    left: 90%;
 }
