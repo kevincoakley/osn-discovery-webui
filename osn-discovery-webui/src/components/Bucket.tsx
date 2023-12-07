@@ -6,7 +6,7 @@ import '../assets/styles/Bucket.css'
 type BucketProps = {
     bucketName: string;
     bucketLoc: string,
-    bucketSize: number,
+    bucketSize: string,
     bucketNumFiles: number
 }
 

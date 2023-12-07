@@ -45,6 +45,10 @@ function transformBytes(numBytes: number) {
     }
     return `${Math.round(numBytes) + prefix}`
 }
+
+function getLocation(server: string) {
+    return server.split('.')[0].toUpperCase()
+}
 function BucketList() {
     const [bucketDetails, setBucketDetails] = useState<Record<string, BucketDetails>> ({
         'bucket': {
@@ -66,11 +70,10 @@ function BucketList() {
     }, [])
     return (
         <>
-            <h1>BucketList</h1>
             {/* Get the key-value pairs of each bucket, and use the properties of the value-object */}
             {
                 Object.keys(bucketDetails).map((key) => (
-                    <Bucket bucketName={bucketDetails[key]['name']} bucketLoc={bucketDetails[key]['site']} bucketNumFiles={bucketDetails[key]['object-count']} bucketSize={transformBytes(bucketDetails[key]['bytes-used'])} key={key}/>            
+                    <Bucket bucketName={bucketDetails[key]['name']} bucketLoc={getLocation(bucketDetails[key]['site'])} bucketNumFiles={bucketDetails[key]['object-count']} bucketSize={transformBytes(bucketDetails[key]['bytes-used'])} key={key}/>            
                 ))
             }
         </>

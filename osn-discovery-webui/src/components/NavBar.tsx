@@ -1,7 +1,9 @@
 import '../assets/styles/NavBar.css'
 function NavBar() {
     return (
-        <h1>NavBar</h1>
+        <>
+            <h1>NavBar</h1>
+        </>
     )
 }
 

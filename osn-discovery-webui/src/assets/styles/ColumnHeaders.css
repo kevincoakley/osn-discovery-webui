@@ -1,8 +1,40 @@
 .columnHeaders {
+    display:flex;
+    position: relative;
+    max-width: 70vw;
+    max-height:7vh;
     width:90vw;
     height:7vh;
-    margin: auto;
+    margin-left: 10vw;
+    margin-right: 10vw;
     border-style: solid;
     border-color:black;
     border-width: thin;
+    background-color: #E6E1E1;
+}
+
+.header {
+    position:absolute;
+    top: 3%;
+    color: #3965d7;
+    font-size:x-large;
+}
+.headerName {
+    max-width: 50%;
+    left: 5%;
+}
+
+.headerLocation {
+    max-width: 30%;
+    left: 37%;
+}
+
+.headerSize {
+    max-width: 10%;
+    left: 60%;
+}
+
+.headerNumFiles {
+    max-width: 30%;
+    left: 73%;
 }

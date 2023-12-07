@@ -1,13 +1,17 @@
-import NavBar from 'components/NavBar'
-import BucketList from 'components/BucketList'
+import NavBar from '../components/NavBar'
+import ColumnHeaders from '../components/ColumnHeaders'
+import BucketList from '../components/BucketList'
 
-export const BucketListView = () => {
+const BucketListView = () => {
     return (
         <>
             <div>
                 <NavBar />
+                <ColumnHeaders />
                 <BucketList/>
             </div>
         </>
     )
 }
+
+export default BucketListView

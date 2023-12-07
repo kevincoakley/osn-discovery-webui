@@ -1,7 +1,7 @@
 // import { React, useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar'
-import BucketList from './components/BucketList'
+import BucketListView from './pages/BucketListView'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
@@ -10,7 +10,7 @@ const App: React.FC = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<BucketList/>} />
+          <Route path="/" element={<BucketListView/>} />
         </Routes>
       </BrowserRouter>
       {/* <div>
