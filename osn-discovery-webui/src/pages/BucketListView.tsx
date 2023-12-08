@@ -6,7 +6,6 @@ const BucketListView = () => {
     return (
         <>
             <div>
-                <NavBar />
                 <ColumnHeaders />
                 <BucketList/>
             </div>
