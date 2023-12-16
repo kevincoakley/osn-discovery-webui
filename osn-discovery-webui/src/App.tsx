@@ -6,7 +6,6 @@ import BucketFileListView from './pages/BucketFileListView'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 const App: React.FC = () => {
-
   return (
     <>
       <BrowserRouter>

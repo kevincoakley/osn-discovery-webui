@@ -1,5 +1,5 @@
 // import { useQuery } from '@tanstack/react-query'
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import '../assets/styles/Bucket.css'
 
 type BucketProps = {
@@ -14,7 +14,7 @@ function Bucket({ bucketName, bucketLoc, bucketSize, bucketNumFiles, bucketPath 
     return (
         <>
             <div className='rowItem'>
-                <NavLink to={`/details/${bucketPath}`} className='bucketName' >{bucketName}</NavLink>
+                <Link to={`/details/${bucketPath}`} className='bucketName' >{bucketName}</Link>
                 <div className='bucketLocation'>{bucketLoc}</div>
                 <div className='bucketSize'>{bucketSize}</div>
                 <div className='bucketNumFiles'>{bucketNumFiles}</div>

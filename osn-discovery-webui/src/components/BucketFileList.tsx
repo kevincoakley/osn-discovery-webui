@@ -55,6 +55,7 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
         }
         
     }
+    console.log("In BucketFileList")
     useEffect(() => {
         getBucketDetails(bucketPath)
     }, [])
