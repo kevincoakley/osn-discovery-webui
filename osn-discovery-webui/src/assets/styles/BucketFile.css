@@ -1,42 +1,36 @@
-.columnHeaders {
+.rowItem {
     display:flex;
     position: relative;
     max-width: 70vw;
     max-height:7vh;
     width:90vw;
     height:7vh;
-    align-items:center;
-    margin-top:20px;
     margin-left: 10vw;
     margin-right: 10vw;
     margin-bottom: 1px;
     border-style: solid;
-    border-color: #333333;
+    border-color:white;
     border-width: thin;
     background-color: #E6E1E1;
 }
 
-.header {
+.objKey {
     position:absolute;
-    color: #3965d7;
-    font-size:x-large;
-}
-.headerName {
-    max-width: 50%;
+    max-width: 30%;
+    top: 20%;
     left: 5%;
 }
 
-.headerLocation {
+.objLastMod {
+    position:absolute;
     max-width: 30%;
-    left: 37%;
+    top: 20%;
+    left: 20%;
 }
 
-.headerSize {
-    max-width: 10%;
+.objSize {
+    position:absolute;
+    max-width: 20%;
+    top: 20%;
     left: 60%;
-}
-
-.headerNumFiles {
-    max-width: 30%;
-    left: 73%;
 }

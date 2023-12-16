@@ -1,4 +1,3 @@
-import NavBar from '../components/NavBar'
 import ColumnHeaders from '../components/ColumnHeaders'
 import BucketList from '../components/BucketList'
 

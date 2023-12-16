@@ -7,8 +7,9 @@
     height:7vh;
     margin-left: 10vw;
     margin-right: 10vw;
+    margin-bottom: 1px;
     border-style: solid;
-    border-color:black;
+    border-color:white;
     border-width: thin;
     background-color: #E6E1E1;
 }

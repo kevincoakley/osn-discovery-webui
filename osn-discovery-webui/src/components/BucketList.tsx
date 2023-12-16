@@ -10,15 +10,6 @@ interface BucketDetails {
         'site': string
 }
 
-// Utility functions for managing Records
-export function recordKeys<K extends PropertyKey, T>(object: Record<K, T>) {
-    return Object.keys(object) as (K)[];
-  };
-  
-  export function recordEntries<K extends PropertyKey, T>(object: Record<K, T>) {
-    return Object.entries(object) as ([K,T])[];
-  };
-
 function transformBytes(numBytes: number) {
     const powerOfBytes = 2**10
     let magnitude = 0
@@ -73,7 +64,7 @@ function BucketList() {
             {/* Get the key-value pairs of each bucket, and use the properties of the value-object */}
             {
                 Object.keys(bucketDetails).map((key) => (
-                    <Bucket bucketName={bucketDetails[key]['name']} bucketLoc={getLocation(bucketDetails[key]['site'])} bucketNumFiles={bucketDetails[key]['object-count']} bucketSize={transformBytes(bucketDetails[key]['bytes-used'])} key={key}/>            
+                    <Bucket bucketName={bucketDetails[key]['name']} bucketLoc={getLocation(bucketDetails[key]['site'])} bucketNumFiles={bucketDetails[key]['object-count']} bucketSize={transformBytes(bucketDetails[key]['bytes-used'])} bucketPath={key} key={key}/>            
                 ))
             }
         </>
