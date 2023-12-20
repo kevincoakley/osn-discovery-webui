@@ -16,21 +16,25 @@
 
 .objKey {
     position:absolute;
-    max-width: 30%;
+    max-width: 40%;
     top: 20%;
     left: 5%;
+}
+
+.objKeyText {
+    overflow: hidden
 }
 
 .objLastMod {
     position:absolute;
     max-width: 30%;
     top: 20%;
-    left: 20%;
+    left: 50%;
 }
 
 .objSize {
     position:absolute;
     max-width: 20%;
     top: 20%;
-    left: 60%;
+    left: 90%;
 }
