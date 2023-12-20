@@ -1,11 +1,11 @@
-import ColumnHeaders from '../components/ColumnHeaders'
+import BucketColumnHeaders from '../components/BucketColumnHeaders'
 import BucketList from '../components/BucketList'
 
 const BucketListView = () => {
     return (
         <>
             <div>
-                <ColumnHeaders />
+                <BucketColumnHeaders />
                 <BucketList/>
             </div>
         </>

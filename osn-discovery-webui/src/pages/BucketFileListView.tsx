@@ -1,3 +1,4 @@
+import FileColumnHeaders from '../components/FileColumnHeaders';
 import BucketFileList from '../components/BucketFileList'
 import { useParams } from "react-router-dom"
 
@@ -8,6 +9,7 @@ const BucketFileListView = () => {
     console.log("In BucketFileListView")
     return (
         <>
+            <FileColumnHeaders/>
             <BucketFileList bucketPath={key}/>
         </>
     )

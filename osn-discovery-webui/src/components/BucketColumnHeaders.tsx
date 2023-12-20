@@ -1,9 +1,9 @@
-import '../assets/styles/ColumnHeaders.css'
+import '../assets/styles/BucketColumnHeaders.css'
 
 
-function ColumnHeaders() {
+function BucketColumnHeaders() {
     return (
-        <div className="columnHeaders">
+        <div className="bucketColumnHeaders">
             <b className="header headerName">Name</b>
             <b className="header headerLocation">Location</b>
             <b className="header headerSize">Size</b>
@@ -12,4 +12,4 @@ function ColumnHeaders() {
     )
 }
 
-export default ColumnHeaders
+export default BucketColumnHeaders

@@ -1,4 +1,4 @@
-.columnHeaders {
+.fileColumnHeaders {
     display:flex;
     position: relative;
     max-width: 70vw;
@@ -22,21 +22,16 @@
     font-size:x-large;
 }
 .headerName {
-    max-width: 50%;
+    max-width: 30%;
     left: 5%;
 }
 
-.headerLocation {
+.headerLastMod {
     max-width: 30%;
-    left: 37%;
+    left: 53%;
 }
 
 .headerSize {
     max-width: 10%;
-    left: 60%;
-}
-
-.headerNumFiles {
-    max-width: 30%;
-    left: 73%;
+    left: 90%;
 }
