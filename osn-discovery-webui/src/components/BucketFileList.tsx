@@ -21,6 +21,9 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
         'size': 0,
         'url': 'N/A'
     }])
+
+    const [loading, setLoading] = useState(false)
+
     /**
      * Parses the url so that it can be accessed without error
      * and rearranges it if the bucket name contains any capital letters
@@ -57,15 +60,22 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
     }
     // console.log("In BucketFileList")
     useEffect(() => {
-        getBucketDetails(bucketPath)
+        setLoading(true)
+        getBucketDetails(bucketPath).then(function(data) {
+            setLoading(false)
+        })
     }, [])
 
     return (
         <>
-            {
-                fileDetails.map((object: BucketFileDetails) => (
-                    <BucketFile etag={object['etag']} objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={object['url']} key={object['key']}/>
-                ))
+            {   loading && (
+                <p>Loading...</p>
+            )}
+            {   !loading && (
+                    fileDetails.map((object: BucketFileDetails) => (
+                        <BucketFile etag={object['etag']} objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={object['url']} key={object['key']}/>
+                    ))
+                )
             }
         </>
     )

@@ -16,27 +16,27 @@
     background-color: #E6E1E1;
 }
 
-.header {
+.bucketColumnHeaders > .header {
     position:absolute;
     color: #3965d7;
     font-size:x-large;
 }
-.headerName {
+.bucketColumnHeaders > .headerName {
     max-width: 50%;
     left: 5%;
 }
 
-.headerLocation {
+.bucketColumnHeaders > .headerLocation {
     max-width: 30%;
     left: 37%;
 }
 
-.headerSize {
+.bucketColumnHeaders > .headerSize {
     max-width: 10%;
     left: 60%;
 }
 
-.headerNumFiles {
+.bucketColumnHeaders > .headerNumFiles {
     max-width: 30%;
     left: 73%;
 }

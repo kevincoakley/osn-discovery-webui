@@ -24,6 +24,8 @@ function BucketList() {
         }
     })
 
+    const [loading, setLoading] = useState(false)
+
     // Api call to get buckets and their details
     const getBuckets = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/buckets`)
@@ -31,16 +33,22 @@ function BucketList() {
     }
 
     useEffect(() => {
-        getBuckets()
+        setLoading(true)
+        getBuckets().then(function(data) {
+            setLoading(false)
+        })
     }, [])
     return (
         <>
             {/* Get the key-value pairs of each bucket, and use the properties of the value-object */}
-            {
-                Object.keys(bucketDetails).map((key) => (
-                    <Bucket bucketName={bucketDetails[key]['name']} bucketLoc={getLocation(bucketDetails[key]['site'])} bucketNumFiles={bucketDetails[key]['object-count']} bucketSize={bucketDetails[key]['bytes-used']} bucketPath={key} key={key}/>            
-                ))
-            }
+                {loading && (
+                    <p>Loading...</p>
+                )}
+                {!loading && (
+                    Object.keys(bucketDetails).map((key) => (
+                        <Bucket bucketName={bucketDetails[key]['name']} bucketLoc={getLocation(bucketDetails[key]['site'])} bucketNumFiles={bucketDetails[key]['object-count']} bucketSize={bucketDetails[key]['bytes-used']} bucketPath={key} key={key}/>            
+                    ))
+                )}
         </>
         
     )

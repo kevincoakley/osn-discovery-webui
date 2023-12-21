@@ -16,22 +16,22 @@
     background-color: #E6E1E1;
 }
 
-.header {
+.fileColumnHeaders > .header {
     position:absolute;
     color: #3965d7;
     font-size:x-large;
 }
-.headerName {
+.fileColumnHeaders > .headerName {
     max-width: 30%;
     left: 5%;
 }
 
-.headerLastMod {
+.fileColumnHeaders > .headerLastMod {
     max-width: 30%;
     left: 53%;
 }
 
-.headerSize {
+.fileColumnHeaders > .headerSize {
     max-width: 10%;
     left: 90%;
 }
