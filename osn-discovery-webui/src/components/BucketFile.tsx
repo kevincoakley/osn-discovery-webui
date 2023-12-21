@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import '../assets/styles/BucketFile.css'
+import { transformBytes } from '../utils/transformBytes';
 
 type BucketFileProps = {
     etag: string;
@@ -70,7 +71,7 @@ function BucketFile({ etag, objKey, lastMod, size, url }: BucketFileProps) {
                     <a onClick={onClickUrl(url)} className='objKeyText'>{ellipsize(objKey)}</a>
                 </div>
                 <div className='objLastMod'>{lastMod}</div>
-                <div className='objSize'>{size}</div>
+                <div className='objSize'>{transformBytes(size)}</div>
             </div>
         </>
         
