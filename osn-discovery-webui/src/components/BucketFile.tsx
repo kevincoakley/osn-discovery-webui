@@ -68,7 +68,9 @@ function BucketFile({ etag, objKey, lastMod, size, url }: BucketFileProps) {
         <>
             <div className='rowItem'>
                 <div className='objKey'>
-                    <a onClick={onClickUrl(url)} className='objKeyText'>{ellipsize(objKey)}</a>
+                    <a onClick={onClickUrl(url)} className='objKeyText' href={url}>
+                        {ellipsize(objKey)}
+                    </a>
                 </div>
                 <div className='objLastMod'>{lastMod}</div>
                 <div className='objSize'>{transformBytes(size)}</div>
