@@ -68,15 +68,15 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
 
     return (
         <>
-            {   loading && (
+            {/* {   loading && (
                 <p>Loading...</p>
             )}
-            {   !loading && (
-                    fileDetails.map((object: BucketFileDetails) => (
+            {   !loading && ( */}
+                    {fileDetails.map((object: BucketFileDetails) => (
                         <BucketFile etag={object['etag']} objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={object['url']} key={object['key']}/>
-                    ))
-                )
-            }
+                    ))}
+                {/* ) */}
+            {/* } */}
         </>
     )
 }
