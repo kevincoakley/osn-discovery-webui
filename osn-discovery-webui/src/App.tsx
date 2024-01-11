@@ -11,9 +11,9 @@ const App: React.FC = () => {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/web/" element={<Navigate to="/web/home" replace/>}/>
-          <Route path="/web/home" element={<BucketListView/>} />
-          <Route path="/web/details/:key" element={<BucketFileListView/>}/>
+          <Route path="/" element={<Navigate to="/home" replace/>}/>
+          <Route path="/home" element={<BucketListView/>} />
+          <Route path="/details/:key" element={<BucketFileListView/>}/>
         </Routes>
       </BrowserRouter>
     </>
