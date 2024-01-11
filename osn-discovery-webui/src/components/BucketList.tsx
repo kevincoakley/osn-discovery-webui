@@ -19,8 +19,8 @@ const getBuckets = () => {
         .then((success) => {
             status = "fulfilled"
             result = success
-            console.log(`Type of result as success: ${typeof(result)}`)
-            console.log(`Result in fetching: ${result}`)
+            // console.log(`Type of result as success: ${typeof(result)}`)
+            // console.log(`Result in fetching: ${result}`)
         })
         .catch((error) => {
             status = "rejected"
@@ -32,7 +32,6 @@ const getBuckets = () => {
         } else if (status === "rejected") {
             throw result
         } else if (status === "fulfilled") {
-            console.log(`Result: ${result}`)
             return result
         }
     }   
