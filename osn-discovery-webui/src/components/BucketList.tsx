@@ -16,26 +16,44 @@ interface BucketDetails {
 function getLocation(server: string) {
     return server.split('.')[0].toUpperCase()
 }
-function BucketList() {
-    const [bucketDetails, setBucketDetails] = useState<Record<string, BucketDetails>> ({})
 
-    const [loading, setLoading] = useState(false)
+let status = "pending"
+let result
 
-    // Api call to get buckets and their details
-    const getBuckets = async () => {
-        try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/buckets`)
-            setBucketDetails(data)
-        } catch (error) {
-            console.log(error)
+// Api call to get buckets and their details
+// Returns a function
+const getBuckets = () => {
+    let fetching = axios.get(`${import.meta.env.VITE_API_BASE_URL}/buckets`)
+        .then((res) => res)
+        .then((success) => {
+            status = "fulfilled"
+            result = success
+            console.log(`Type of result as success: ${typeof(result)}`)
+            console.log(`Result in fetching: ${result}`)
+        })
+        .catch((error) => {
+            status = "rejected"
+            result = error
+        })
+    return () => {
+        if (status === "pending") {
+            throw fetching // Suspend (Way to tell React data is still fetching)
+        } else if (status === "rejected") {
+            throw result
+        } else if (status === "fulfilled") {
+            console.log(`Result: ${result}`)
+            return result
         }
-        
-    }
+    }   
+}
 
-    useEffect(() => {
-        setLoading(true)
-        getBuckets()
-    }, [])
+// fetchedData is a function
+// Returns a response object
+const fetchedData = getBuckets()
+
+function BucketList() {
+    // We want to get the data from the response object
+    const bucketDetails = fetchedData()['data']
     return (
         <>
             {/* Get the key-value pairs of each bucket, and use the properties of the value-object */}
