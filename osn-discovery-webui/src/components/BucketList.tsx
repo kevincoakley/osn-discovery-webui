@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { Link } from 'react-router-dom'
 import { transformBytes } from "../utils/transformBytes.tsx"
 import '../assets/styles/BucketList.css'
@@ -9,7 +9,7 @@ function getLocation(server: string) {
 }
 
 let status = "pending"
-let result
+let result: AxiosResponse
 
 // Api call to get buckets and their details
 // Returns a function
@@ -43,7 +43,7 @@ const fetchedData = getBuckets()
 
 function BucketList() {
     // We want to get the data from the response object
-    const bucketDetails = fetchedData()['data']
+    const bucketDetails = fetchedData()!['data']
     return (
         <>
             {/* Get the key-value pairs of each bucket, and use the properties of the value-object */}

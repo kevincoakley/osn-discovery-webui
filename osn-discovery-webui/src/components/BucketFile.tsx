@@ -1,9 +1,8 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, } from 'react';
 import '../assets/styles/BucketFile.css'
 import { transformBytes } from '../utils/transformBytes.tsx';
 
 type BucketFileProps = {
-    etag: string;
     objKey: string,
     lastMod: string,
     size: number,
@@ -18,7 +17,7 @@ export const openInNewTab = (url: string): void => {
 export const onClickUrl = (url: string): (() => void) => () => openInNewTab(url)
 
 
-function BucketFile({ etag, objKey, lastMod, size, url }: BucketFileProps) {
+function BucketFile({ objKey, lastMod, size, url }: BucketFileProps) {
     // const el = useRef(null)
     // const [isOverflowing, setIsOverflowing] = useState(false)
 
@@ -34,7 +33,7 @@ function BucketFile({ etag, objKey, lastMod, size, url }: BucketFileProps) {
      * @param el 
      * @returns 
      */
-    const checkOverflow = (el: any) => {
+    // const checkOverflow = (el: any) => {
     //     if (el === undefined || el === null)  return false
     
     //     let curOverflow = el.style.overflow
@@ -51,7 +50,7 @@ function BucketFile({ etag, objKey, lastMod, size, url }: BucketFileProps) {
     //     console.log(isOverflowing)
     
     //     return isOverflowing
-    }
+    // }
 
     
     const ellipsize = (key: string) => {

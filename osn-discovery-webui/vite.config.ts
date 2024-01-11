@@ -10,6 +10,6 @@ export default defineConfig({
     },
     host: true, // Needed for Docker Container port mapping to work
     strictPort: true,
-    port: 6142, // TODO: replace with a different unique port
+    port: 6142,
   }
 })
