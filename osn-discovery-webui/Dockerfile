@@ -12,4 +12,4 @@ COPY . .
 # Define port number container should expose
 EXPOSE 6142
 
-CMD ["npm", "run", "build"]
+CMD ["npm", "run", "dev"]
