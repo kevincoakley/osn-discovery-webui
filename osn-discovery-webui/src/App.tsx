@@ -1,8 +1,8 @@
 // import { React, useState } from 'react'
 import './App.css'
-import NavBar from './components/NavBar'
-import BucketListView from './pages/BucketListView'
-import BucketFileListView from './pages/BucketFileListView'
+import NavBar from './components/NavBar.tsx'
+import BucketListView from './pages/BucketListView.tsx'
+import BucketFileListView from './pages/BucketFileListView.tsx'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 const App: React.FC = () => {

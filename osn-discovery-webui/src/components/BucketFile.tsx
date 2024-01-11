@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import '../assets/styles/BucketFile.css'
-import { transformBytes } from '../utils/transformBytes';
+import { transformBytes } from '../utils/transformBytes.tsx';
 
 type BucketFileProps = {
     etag: string;

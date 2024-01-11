@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import BucketFile from './BucketFile'
+import BucketFile from './BucketFile.tsx'
 
 type FileListProps = {
     bucketPath: string

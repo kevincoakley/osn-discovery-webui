@@ -1,7 +1,7 @@
 // import { useQuery } from '@tanstack/react-query'
 import { NavLink, Link } from "react-router-dom"
 import '../assets/styles/Bucket.css'
-import { transformBytes } from "../utils/transformBytes"
+import { transformBytes } from "../utils/transformBytes.tsx"
 
 type BucketProps = {
     bucketName: string;

@@ -1,17 +1,8 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Bucket from './Bucket'
-import { transformBytes } from "../utils/transformBytes"
+import { transformBytes } from "../utils/transformBytes.tsx"
 import '../assets/styles/BucketList.css'
 import '../assets/styles/Bucket.css'
-
-interface BucketDetails {
-        'bytes-used': number,
-        'name': string,
-        'object-count': number,
-        'site': string
-}
 
 function getLocation(server: string) {
     return server.split('.')[0].toUpperCase()
