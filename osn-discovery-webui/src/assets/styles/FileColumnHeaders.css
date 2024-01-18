@@ -1,0 +1,37 @@
+.fileColumnHeaders {
+    display:flex;
+    position: relative;
+    max-width: 70vw;
+    max-height:7vh;
+    width:90vw;
+    height:7vh;
+    align-items:center;
+    margin-top:20px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 1px;
+    border-style: solid;
+    border-color: #333333;
+    border-width: thin;
+    background-color: #E6E1E1;
+}
+
+.fileColumnHeaders > .header {
+    position:absolute;
+    color: #3965d7;
+    font-size:x-large;
+}
+.fileColumnHeaders > .headerName {
+    max-width: 30%;
+    left: 5%;
+}
+
+.fileColumnHeaders > .headerLastMod {
+    max-width: 30%;
+    left: 53%;
+}
+
+.fileColumnHeaders > .headerSize {
+    max-width: 10%;
+    left: 90%;
+}

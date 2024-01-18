@@ -1,0 +1,42 @@
+.bucketColumnHeaders {
+    display:flex;
+    position: relative;
+    max-width: 70vw;
+    max-height:7vh;
+    width:90vw;
+    height:7vh;
+    align-items:center;
+    margin-top:20px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 1px;
+    border-style: solid;
+    border-color: #333333;
+    border-width: thin;
+    background-color: #E6E1E1;
+}
+
+.bucketColumnHeaders > .header {
+    position:absolute;
+    color: #3965d7;
+    font-size:x-large;
+}
+.bucketColumnHeaders > .headerName {
+    max-width: 50%;
+    left: 5%;
+}
+
+.bucketColumnHeaders > .headerLocation {
+    max-width: 30%;
+    left: 37%;
+}
+
+.bucketColumnHeaders > .headerSize {
+    max-width: 10%;
+    left: 60%;
+}
+
+.bucketColumnHeaders > .headerNumFiles {
+    max-width: 30%;
+    left: 73%;
+}

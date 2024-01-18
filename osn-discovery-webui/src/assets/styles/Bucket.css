@@ -1,0 +1,43 @@
+.rowItem {
+    display:flex;
+    position: relative;
+    max-width: 70vw;
+    max-height:7vh;
+    width:90vw;
+    height:7vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 1px;
+    border-style: solid;
+    border-color:white;
+    border-width: thin;
+    background-color: #E6E1E1;
+}
+
+.bucketName {
+    position:absolute;
+    max-width: 50%;
+    top: 20%;
+    left: 5%;
+}
+
+.bucketLocation {
+    position:absolute;
+    max-width: 30%;
+    top: 20%;
+    left: 40%;
+}
+
+.bucketSize {
+    position:absolute;
+    max-width: 10%;
+    top: 20%;
+    left: 60%;
+}
+
+.bucketNumFiles {
+    position:absolute;
+    max-width: 20%;
+    top: 20%;
+    left: 80%;
+}
