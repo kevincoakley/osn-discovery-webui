@@ -14,7 +14,7 @@ let result: AxiosResponse
 // Api call to get buckets and their details
 // Returns a function
 const getBuckets = () => {
-    let fetching = axios.get(`${import.meta.env.VITE_API_BASE_URL}/buckets`)
+    let fetching = axios.get(`/api/buckets`)
         .then((res) => res)
         .then((success) => {
             status = "fulfilled"

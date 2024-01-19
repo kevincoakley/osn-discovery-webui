@@ -13,6 +13,7 @@ interface BucketFileDetails {
     'size': number,
     'url': string
 }
+
 const BucketFileList = ({bucketPath}: FileListProps) => {
     const [fileDetails, setFileDetails] = useState<Array<BucketFileDetails>>([{
         'etag': 'N/A',
@@ -45,7 +46,7 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
     }
     const getBucketDetails = async (bucketPath: string) => {
         try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/object-list/${bucketPath}`)
+            const { data } = await axios.get(`/api/object-list/${bucketPath}`)
             data.map((object: BucketFileDetails) => (
                 object['url'] = transformUrl(object['url'])
             ))
