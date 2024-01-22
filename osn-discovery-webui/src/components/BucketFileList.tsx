@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios'
-import { useState, useEffect } from 'react'
 import BucketFile from './BucketFile.tsx'
 
 type FileListProps = {
@@ -80,7 +79,7 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
             )}
             {   !loading && ( */}
                     {bucketFileDetails.map((object: BucketFileDetails) => (
-                        <BucketFile objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={object['url']} key={object['key']}/>
+                        <BucketFile objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={transformUrl(object['url'], bucketPath)} key={object['key']}/>
                     ))}
                 {/* ) */}
             {/* } */}
