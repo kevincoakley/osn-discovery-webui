@@ -13,6 +13,29 @@ interface BucketFileDetails {
     'size': number,
     'url': string
 }
+/**
+     * Parses the url so that it can be accessed without error
+     * and rearranges it if the bucket name contains any capital letters
+     * Capital Letters: https://[bucket].[server]/[filename] -> https://[server]/[bucket]/[filename]
+     * @param url 
+     * @returns newUrl
+     */
+    
+const transformUrl = (url: string, bucketPath: string) => {
+    const bucketName: string = bucketPath.split(".")[0]
+    let newUrl : string = url
+    // Test to see if string contains capital letters
+    if (/[A-Z]/.test(bucketName)) {
+        let splitBySlash = url.split("/")
+        const path : string = splitBySlash[2]
+        let splitByDot = path.split(".")
+        const bucket: string = (splitByDot.shift() ?? "")
+        splitBySlash[2] = splitByDot.join(".")
+        splitBySlash.splice(3,0, bucket)
+        newUrl = splitBySlash.join("/")
+    }
+    return encodeURI(newUrl)
+}
 
 const BucketFileList = ({bucketPath}: FileListProps) => {
     const [fileDetails, setFileDetails] = useState<Array<BucketFileDetails>>([{
@@ -22,33 +45,12 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
         'size': 0,
         'url': 'N/A'
     }])
-    /**
-     * Parses the url so that it can be accessed without error
-     * and rearranges it if the bucket name contains any capital letters
-     * Capital Letters: https://[bucket].[server]/[filename] -> https://[server]/[bucket]/[filename]
-     * @param url 
-     * @returns newUrl
-     */
-    const transformUrl = (url: string) => {
-        const bucketName: string = bucketPath.split(".")[0]
-        let newUrl : string = url
-        // Test to see if string contains capital letters
-        if (/[A-Z]/.test(bucketName)) {
-            let splitBySlash = url.split("/")
-            const path : string = splitBySlash[2]
-            let splitByDot = path.split(".")
-            const bucket: string = (splitByDot.shift() ?? "")
-            splitBySlash[2] = splitByDot.join(".")
-            splitBySlash.splice(3,0, bucket)
-            newUrl = splitBySlash.join("/")
-        }
-        return encodeURI(newUrl)
-    }
+    
     const getBucketDetails = async (bucketPath: string) => {
         try {
             const { data } = await axios.get(`/api/object-list/${bucketPath}`)
             data.map((object: BucketFileDetails) => (
-                object['url'] = transformUrl(object['url'])
+                object['url'] = transformUrl(object['url'], bucketPath)
             ))
             setFileDetails(data)
         } catch (error) {
