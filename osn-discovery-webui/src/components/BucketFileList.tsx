@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { useState, useEffect } from 'react'
 import BucketFile from './BucketFile.tsx'
 
@@ -37,32 +37,41 @@ const transformUrl = (url: string, bucketPath: string) => {
     return encodeURI(newUrl)
 }
 
-const BucketFileList = ({bucketPath}: FileListProps) => {
-    const [fileDetails, setFileDetails] = useState<Array<BucketFileDetails>>([{
-        'etag': 'N/A',
-        'key': 'N/A',
-        'last-modified': 'N/A',
-        'size': 0,
-        'url': 'N/A'
-    }])
-    
-    const getBucketDetails = async (bucketPath: string) => {
-        try {
-            const { data } = await axios.get(`/api/object-list/${bucketPath}`)
-            data.map((object: BucketFileDetails) => (
-                object['url'] = transformUrl(object['url'], bucketPath)
-            ))
-            setFileDetails(data)
-        } catch (error) {
-            console.log(error)
-        }
-        
-    }
-    // console.log("In BucketFileList")
-    useEffect(() => {
-        getBucketDetails(bucketPath).then(function() {
+// This variable helps us track the status of our data fetch call and we use
+// it in our own logic
+let status = "pending"
+// This variable is the return object of the the fetch call
+let result: AxiosResponse
+
+const getBucketDetails = (bucketPath: string) => {
+    let fetching = axios.get(`/api/object-list/${bucketPath}`)
+        // Take ethe response
+        .then((res) => res)
+        // If the response was a success and we get a non-null value
+        .then((success) => {
+            status = "fulfilled"  // Change the status accordingly
+            result = success  // Our result is the data that was returned
         })
-    }, [])
+        // If there is an error...
+        .catch((error) => {
+            status = "rejected"  // Change the status accordingly
+            result = error  // Our result is the error object that is thrown
+        })
+    return () => {
+        // While our status is still pending...
+        if (status === "pending") {
+            throw fetching // Suspend (Way to tell React data is still fetching)
+        } else if (status === "rejected") {  // An error was encountered
+            throw result
+        } else if (status === "fulfilled") { // Successful data fetch
+            return result  // Safely return our data
+        }
+    }
+}
+
+const BucketFileList = ({bucketPath}: FileListProps) => {    
+    const fetchedData = getBucketDetails(bucketPath)
+    const bucketFileDetails = fetchedData()!['data']
 
     return (
         <>
@@ -70,7 +79,7 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
                 <p>Loading...</p>
             )}
             {   !loading && ( */}
-                    {fileDetails.map((object: BucketFileDetails) => (
+                    {bucketFileDetails.map((object: BucketFileDetails) => (
                         <BucketFile objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={object['url']} key={object['key']}/>
                     ))}
                 {/* ) */}
