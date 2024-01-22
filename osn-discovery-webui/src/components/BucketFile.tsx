@@ -16,7 +16,6 @@ export const openInNewTab = (url: string): void => {
 
 export const onClickUrl = (url: string): (() => void) => () => openInNewTab(url)
 
-
 function BucketFile({ objKey, lastMod, size, url }: BucketFileProps) {
     // const el = useRef(null)
     // const [isOverflowing, setIsOverflowing] = useState(false)
@@ -54,11 +53,25 @@ function BucketFile({ objKey, lastMod, size, url }: BucketFileProps) {
 
     
     const ellipsize = (key: string) => {
+        const X = 16
         if (key.length > 36) {
-            let fileExtension: string = key.split(".").slice(-1)[0]
-            let first6Chars: string = key.slice(0,6)
-            let last6Chars: string = key.split(".").slice(-2,-1)[0].slice(-6)
-            key = first6Chars + "..." + last6Chars + "." + fileExtension
+            console.log(`Key split by ".": ${key.split(".")}`)
+            let fileExtension: string = ""
+            let firstXChars: string = ""
+            let lastXChars: string = ""
+            // If there is a file extension...
+            if (key.split(".").length > 1) {
+                console.log(key)
+                // File extension is of format ".<file_extension>" e.g. ".txt"
+                fileExtension = "." + key.split(".").slice(-1)[0]
+                firstXChars = key.slice(0,X)
+                lastXChars = key.slice(( - fileExtension.length - X - 1), (- fileExtension.length - 1))
+            // There isn't a file extension...
+            } else {
+                firstXChars = key.slice(0,X)
+                lastXChars = key.slice(-X)
+            }
+            key = firstXChars + "..." + lastXChars + fileExtension
         }
         return key
     }
