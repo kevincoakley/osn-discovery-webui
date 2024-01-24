@@ -22,9 +22,9 @@ export default defineConfig(({mode}) => {
       host: true, // Needed for Docker Container port mapping to work
       strictPort: true,
       port: 6142,
-      // hmr: {
-      //   clientPort: 6142
-      // },
+      hmr: {
+        clientPort: 6142
+      },
     }
   }
 })
