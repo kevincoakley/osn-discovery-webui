@@ -12,3 +12,6 @@
 
 When you are ready to stop the web app, run `docker stop [container_name]`
 - e.g. `docker stop dev-container`
+
+### Notes
+Make sure to create a `.env` file and put in the API url in a variable called `VITE_API_BASE_URL`
