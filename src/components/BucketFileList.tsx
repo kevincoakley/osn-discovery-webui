@@ -43,7 +43,7 @@ let status = "pending"
 let result: AxiosResponse
 
 const getBucketDetails = (bucketPath: string) => {
-    let fetching = axios.get(`${import.meta.env.VITE_API_BASE_URL}/object-list/${bucketPath}`)
+    let fetching = axios.get(`/api/object-list/${bucketPath}`)
         // Take ethe response
         .then((res) => res)
         // If the response was a success and we get a non-null value

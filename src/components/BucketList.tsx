@@ -18,7 +18,7 @@ let result: AxiosResponse
 // Returns a function
 const getBuckets = () => {
     // We fetch from the external API
-    let fetching = axios.get(`${import.meta.env.VITE_API_BASE_URL}/buckets`)
+    let fetching = axios.get(`/api/buckets`)
         // Take the response...
         .then((res) => res)
         // If the response was a success and we get a non-null value
