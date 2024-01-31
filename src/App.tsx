@@ -15,6 +15,8 @@ const App: React.FC = () => {
           {/* <Route path="/" element={<Navigate to="/home" replace/>}/> */}
           <Route path="/" element={<BucketListView/>} />
           <Route path="/details/:key" element={<BucketFileListView/>}/>
+          <Route path="/home" element={<BucketListView/>} />
+          <Route path="/" element={<Navigate to="/home" replace/>}/>
         </Routes>
         <BottomBar/>
       </BrowserRouter>
