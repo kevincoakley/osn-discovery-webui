@@ -7,6 +7,7 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd())
   return {
     plugins: [react()],
+    appType: 'spa',
     server: {
       proxy: {
         "/api": {
@@ -14,7 +15,7 @@ export default defineConfig(({mode}) => {
           changeOrigin: true,
           secure: false,
           rewrite: (path) => path.replace(/^\/api/, ""),
-        }
+        },
         // "/details/.*": {
         //   target: "/",
         //   changeOrigin: true,
