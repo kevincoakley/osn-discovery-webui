@@ -11,9 +11,10 @@
 .NavMenu {
     display: flex;
     align-items: center;
-    margin-right: -24px;
+    margin: auto 0;
     column-gap: 30px;
     position: absolute;
+    top: 25%;
     left: 50px;
     color: #0F1E26;
     @media screen and (max-width: 768px) {
@@ -64,24 +65,21 @@
     background: #ffffff;
     height: 40px;
     width: 100%;
-    display: flex;
+    display: block;
     border-bottom: 1px solid black;
     justify-content: space-between;
-    align-items: center;
     /* padding: 0.2rem calc((100vw - 1000px) / 2); */
     z-index: 12;
 }
 
 .BottomBar {
     background: #0F1E26;
-    /* bottom: 0px;
-    left: 0%; */
     float: left;
     position: relative;
     padding: 0;
     height: 60px;
     width: 100%;
-    display: flex;
+    display: block;
     justify-content: space-between;
     align-items: center;
     /* padding: 0.2rem calc((100vw - 1000px) / 2); */
@@ -97,3 +95,22 @@
 .TopBar a:hover {
     color: #8bcce6;
 }
+
+#Logos {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: auto;
+    right: 0%;
+    align-items: center;
+    justify-content: right;
+}
+
+#Logos > img {
+    height: 100%;
+    width: auto;
+    padding: 10px;
+}
+
+
+
