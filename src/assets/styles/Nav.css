@@ -72,6 +72,16 @@
     z-index: 12;
 }
 
+.TopBar a {
+    font-weight: 600;
+    color: #0F1E26;
+    text-decoration: inherit;
+}
+
+.TopBar a:hover {
+    color: #8bcce6;
+}
+
 .BottomBar {
     background: #0F1E26;
     float: left;
@@ -86,13 +96,13 @@
     /* z-index: 12; */
 }
 
-.TopBar a {
+.BottomBar a {
     font-weight: 600;
-    color: #0F1E26;
+    color: #ffffff;
     text-decoration: inherit;
 }
 
-.TopBar a:hover {
+.BottomBar a:hover {
     color: #8bcce6;
 }
 
