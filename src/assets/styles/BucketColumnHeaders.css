@@ -1,9 +1,7 @@
 .bucketColumnHeaders {
     display:flex;
     position: relative;
-    max-width: 70vw;
-    max-height:7vh;
-    width:90vw;
+    width:auto;
     height:7vh;
     align-items:center;
     margin-top:20px;
