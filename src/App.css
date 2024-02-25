@@ -1,7 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  align-items: center;
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  padding-top: 2rem;
+  padding-bottom: 0rem;
   text-align: center;
 }
 

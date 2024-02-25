@@ -8,14 +8,14 @@ export default defineConfig(({mode}) => {
   return {
     plugins: [react()],
     server: {
-      // proxy: {
-      //   "/api": {
-      //     target: env.VITE_API_BASE_URL,
-      //     changeOrigin: true,
-      //     secure: false,
-      //     rewrite: (path) => path.replace(/^\/api/, ""),
-      //   }
-      // },
+      proxy: {
+        "/api": {
+          target: env.VITE_API_BASE_URL,
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/api/, ""),
+        }
+      },
       watch: {
         usePolling: true,
       },

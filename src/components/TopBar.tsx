@@ -1,9 +1,9 @@
-import '../assets/styles/NavBar.css'
+import '../assets/styles/Nav.css'
 import { NavLink } from "react-router-dom"
-function NavBar() {
+function TopBar() {
     return (
         <>
-            <nav className="Nav">
+            <nav className="TopBar">
                 <div className="NavLogo">OSN</div>
                 <div className="NavMenu">
                     <NavLink to="/home">Home</NavLink>
@@ -14,4 +14,4 @@ function NavBar() {
     )
 }
 
-export default NavBar
+export default TopBar
