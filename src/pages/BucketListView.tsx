@@ -1,15 +1,11 @@
-import Loading from '../../src/components/Loading.tsx'
-import { Suspense, lazy } from 'react'
+import BucketList from '../components/BucketList.tsx'
+import BucketColumnHeaders from '../components/BucketColumnHeaders.tsx'
 
 const BucketListView = () => {
-    const BucketList = lazy(() => import("../../src/components/BucketList.tsx"))
-    const BucketColumnHeaders = lazy(() => import("../../src/components/BucketColumnHeaders.tsx"))
     return (
         <>
-            <Suspense fallback={<Loading/>}>
-                <BucketColumnHeaders />
-                <BucketList/>
-            </Suspense>
+            <BucketColumnHeaders />
+            <BucketList/>
         </>
     )
 }

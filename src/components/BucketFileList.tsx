@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import Loading from './Loading.tsx'
 import BucketFile from './BucketFile.tsx'
