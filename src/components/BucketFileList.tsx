@@ -1,4 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
+import { useQuery } from '@tanstack/react-query'
+import Loading from './Loading.tsx'
 import BucketFile from './BucketFile.tsx'
 
 type FileListProps = {
@@ -36,53 +38,25 @@ const transformUrl = (url: string, bucketPath: string) => {
     return encodeURI(newUrl)
 }
 
-// This variable helps us track the status of our data fetch call and we use
-// it in our own logic
-let status = "pending"
-// This variable is the return object of the the fetch call
-let result: AxiosResponse
-
-const getBucketDetails = (bucketPath: string) => {
-    let fetching = axios.get(`${import.meta.env.VITE_API_BASE_URL}/object-list/${bucketPath}`)
-        // Take ethe response
-        .then((res) => res)
-        // If the response was a success and we get a non-null value
-        .then((success) => {
-            status = "fulfilled"  // Change the status accordingly
-            result = success  // Our result is the data that was returned
-        })
-        // If there is an error...
-        .catch((error) => {
-            status = "rejected"  // Change the status accordingly
-            result = error  // Our result is the error object that is thrown
-        })
-    return () => {
-        // While our status is still pending...
-        if (status === "pending") {
-            throw fetching // Suspend (Way to tell React data is still fetching)
-        } else if (status === "rejected") {  // An error was encountered
-            throw result
-        } else if (status === "fulfilled") { // Successful data fetch
-            return result  // Safely return our data
-        }
-    }
-}
-
 const BucketFileList = ({bucketPath}: FileListProps) => {    
-    const fetchedData = getBucketDetails(bucketPath)
-    const bucketFileDetails = fetchedData()!['data']
+    const { isPending, data, error, isFetching } = 
+    useQuery({
+        queryKey: ['bucketFileList'],
+        queryFn: () => 
+            axios
+                .get(`/api/object-list/${bucketPath}`)
+                .then((res) => res.data),
+        })
+
+    if (isPending || isFetching) return <Loading />
+
+    if (error) return 'An error has occurred: ' + error.message
 
     return (
         <>
-            {/* {   loading && (
-                <p>Loading...</p>
-            )}
-            {   !loading && ( */}
-                    {bucketFileDetails.map((object: BucketFileDetails) => (
-                        <BucketFile objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={transformUrl(object['url'], bucketPath)} key={object['key']}/>
-                    ))}
-                {/* ) */}
-            {/* } */}
+            {data.map((object: BucketFileDetails) => (
+                <BucketFile objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={transformUrl(object['url'], bucketPath)} key={object['key']}/>
+            ))}
         </>
     )
 }
