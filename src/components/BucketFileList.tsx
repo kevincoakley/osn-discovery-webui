@@ -44,7 +44,7 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
         queryKey: ['bucketFileList'],
         queryFn: () => 
             axios
-                .get(`/api/object-list/${bucketPath}`)
+                .get(`${import.meta.env.VITE_API_BASE_URL}/object-list/${bucketPath}`)
                 .then((res) => res.data),
         })
 

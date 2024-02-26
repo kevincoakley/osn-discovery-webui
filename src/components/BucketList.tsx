@@ -17,7 +17,7 @@ function BucketList() {
         queryKey: ['bucketList'],
         queryFn: () => 
             axios
-                .get('/api/buckets')
+                .get(`${import.meta.env.VITE_API_BASE_URL}/buckets`)
                 .then((res) => res.data),
         })
 
