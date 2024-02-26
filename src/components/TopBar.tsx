@@ -6,7 +6,7 @@ function TopBar() {
             <nav className="TopBar">
                 <div className="NavLogo">OSN</div>
                 <div className="NavMenu">
-                    <NavLink to="/home">Home</NavLink>
+                    <NavLink to="/">Home</NavLink>
                 </div>
             </nav>
             
