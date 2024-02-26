@@ -12,6 +12,7 @@ function getLocation(server: string) {
 }
 
 function BucketList() {
+    console.log(`Printing env variable: ${import.meta.env.VITE_API_BASE_URL}`)
     const { isPending, data, error, isFetching } = 
     useQuery({
         queryKey: ['bucketList'],
