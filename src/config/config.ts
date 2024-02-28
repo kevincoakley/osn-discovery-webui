@@ -1,3 +1,4 @@
 export default {
-    API_BASE_URL: 'https://osn-api.sdsc.edu/v2.0/'
+    ABOUT_LINK: "https://www.openstoragenetwork.org/motivation/",
+    CONTACT_US_LINK: "https://www.openstoragenetwork.org/contact-us/",
 }
