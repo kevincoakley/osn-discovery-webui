@@ -8,6 +8,7 @@ export default defineConfig(({mode}) => {
   return {
     plugins: [react()],
     appType: 'spa',
+    appType: 'spa',
     server: {
       // proxy: {
       //   "/api": {
