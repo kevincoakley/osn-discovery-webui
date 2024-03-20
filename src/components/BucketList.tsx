@@ -1,7 +1,7 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { Link } from 'react-router-dom'
-import { useQuery, useMutation, QueryCache } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { useQuery } from '@tanstack/react-query'
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { transformBytes } from "../utils/transformBytes.tsx"
 import Loading from './Loading.tsx';
 import '../assets/styles/BucketList.css'

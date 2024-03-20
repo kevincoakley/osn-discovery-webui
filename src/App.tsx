@@ -4,7 +4,7 @@ import TopBar from './components/TopBar.tsx'
 import BottomBar from './components/BottomBar.tsx'
 import BucketListView from './pages/BucketListView.tsx'
 import BucketFileListView from './pages/BucketFileListView.tsx'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
   return (
