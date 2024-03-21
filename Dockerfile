@@ -10,6 +10,6 @@ RUN npm install
 
 COPY . .
 # Define port number container should expose
-EXPOSE 6142
+# EXPOSE 6142
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "build"]
