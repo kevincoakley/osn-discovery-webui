@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../assets/styles/BucketFile.css'
 import { transformBytes } from '../utils/transformBytes.tsx';
 
@@ -5,7 +6,8 @@ type BucketFileProps = {
     objKey: string,
     lastMod: string,
     size: number,
-    url: string
+    url: string,
+    bucketPath: string
 }
 
 export const openInNewTab = (url: string): void => {
@@ -15,7 +17,7 @@ export const openInNewTab = (url: string): void => {
 
 export const onClickUrl = (url: string): (() => void) => () => openInNewTab(url)
 
-function BucketFile({ objKey, lastMod, size, url }: BucketFileProps) {
+function BucketFile({ objKey, lastMod, size, url, bucketPath }: BucketFileProps) {
     /**
      * TODO: Update this function to check for overflow based on size of elements
      * and not on number of characters in the string.
@@ -49,7 +51,7 @@ function BucketFile({ objKey, lastMod, size, url }: BucketFileProps) {
             // If there is a file extension...
             if (key.split(".").length > 1) {
                 // File extension is of format ".<file_extension>" e.g. ".txt"
-                fileExtension = "." + key.split(".").slice(-1)[0]
+                fileExtension = "." + key.split(".").at(-1)
                 firstXChars = key.slice(0,X)
                 lastXChars = key.slice(( - fileExtension.length - X - 1), (- fileExtension.length - 1))
             // There isn't a file extension...
@@ -61,13 +63,23 @@ function BucketFile({ objKey, lastMod, size, url }: BucketFileProps) {
         }
         return key
     }
+
+    // TODO: Combine previous function and this function into one "parsing" function
+    const getImageFileName = (objKey: string) => {
+        let imageFileName = objKey;
+        imageFileName = imageFileName.split("/").at(-1) ?? "Image not found"; // TODO: Add error picture or introduce try catch
+        return imageFileName
+    }
     return (
         <>
             <div className='rowItem'>
                 <div className='objKey'>
-                    <a onClick={onClickUrl(url)} className='objKeyText' href={url}>
+                    <Link to={`/details/${bucketPath}/${getImageFileName(objKey)}/view`} state={{imageUrl: url}}>
                         {ellipsize(objKey)}
-                    </a>
+                    </Link>
+                    {/* <a onClick={onClickUrl(url)} className='objKeyText' href={url}>
+                        {ellipsize(objKey)}
+                    </a> */}
                 </div>
                 <div className='objLastMod'>{lastMod}</div>
                 <div className='objSize'>{transformBytes(size)}</div>

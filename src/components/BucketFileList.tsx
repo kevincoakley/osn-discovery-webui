@@ -18,7 +18,8 @@ interface BucketFileDetails {
      * Parses the url so that it can be accessed without error
      * and rearranges it if the bucket name contains any capital letters
      * Capital Letters: https://[bucket].[server]/[filename] -> https://[server]/[bucket]/[filename]
-     * @param url 
+     * @param url the unparsed url
+     * @param bucketPath the name of the bucket path
      * @returns newUrl
      */
     
@@ -55,7 +56,12 @@ const BucketFileList = ({bucketPath}: FileListProps) => {
     return (
         <>
             {data.map((object: BucketFileDetails) => (
-                <BucketFile objKey={object['key']} lastMod={object['last-modified']} size={object['size']} url={transformUrl(object['url'], bucketPath)} key={object['key']}/>
+                <BucketFile objKey={object['key']}
+                            lastMod={object['last-modified']}
+                            size={object['size']}
+                            url={transformUrl(object['url'], bucketPath)}
+                            key={object['key']}
+                            bucketPath={bucketPath}/>
             ))}
         </>
     )
