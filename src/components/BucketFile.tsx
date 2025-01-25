@@ -8,6 +8,10 @@ type BucketFileProps = {
     url: string
 }
 
+/**
+ * Short function to open a bucketfile in a new tab instead of a new window
+ * @param url url to open in a new tab
+ */
 export const openInNewTab = (url: string): void => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
     if (newWindow) newWindow.opener = null
@@ -15,6 +19,11 @@ export const openInNewTab = (url: string): void => {
 
 export const onClickUrl = (url: string): (() => void) => () => openInNewTab(url)
 
+/**
+ * 
+ * @param BucketFileProps 
+ * @returns 
+ */
 function BucketFile({ objKey, lastMod, size, url }: BucketFileProps) {
     /**
      * TODO: Update this function to check for overflow based on size of elements

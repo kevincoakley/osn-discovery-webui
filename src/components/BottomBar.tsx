@@ -8,7 +8,6 @@ function BottomBar() {
         <>
             <nav className="BottomBar">
                 <div className="NavMenu">
-                    {/* TODO: Navigate to actual About and Contact Us Pages */}
                     <NavLink to={config.ABOUT_LINK}>About</NavLink>
                     <NavLink to={config.CONTACT_US_LINK}>Contact Us</NavLink>
                 </div>
